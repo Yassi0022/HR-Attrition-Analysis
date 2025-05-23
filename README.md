@@ -18,10 +18,6 @@ This project analyzes employee attrition in a company using the IBM HR Analytics
 - **Human Resources** also shows high turnover compared to other areas
 - R&D has the **lowest attrition**, suggesting higher stability
 
-##  Graph Example
-
-![Attrition by Department](img/attrition_chart.png)
-
 ##  Dataset
 - [IBM HR Analytics Dataset](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset)
 
