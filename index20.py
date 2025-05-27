@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+import os
 
 df = pd.read_csv("WA_Fn-UseC_-HR-Employee-Attrition.csv")
 #print(df.head())
@@ -36,6 +37,7 @@ plt.tight_layout()
 
 plt.show()
 plt.savefig("img/attriction_percentage_by_department.png")
+plt.show()
 plt.close()
 
 
