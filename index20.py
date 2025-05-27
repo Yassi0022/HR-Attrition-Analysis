@@ -20,6 +20,11 @@ result = pd.DataFrame({
     "Department" : attrition_percentage.index,
     "Attrition %": attrition_percentage.values
 })
+
+import os
+if not os.path.exists("img"):
+    os.mkdir("img")
+
 plt.figure(figsize=(8, 5))
 sns.barplot(data=result, x="Department", y="Attrition %")
 
@@ -28,8 +33,10 @@ plt.ylabel("Attrition %")
 plt.xlabel("Department")
 plt.xticks(rotation=30)
 plt.tight_layout()
-plt.show()
 
+plt.show()
+plt.savefig("img/attriction_percentage_by_department.png")
+plt.close()
 
 
 print("\n Attrition percentage by department:")
