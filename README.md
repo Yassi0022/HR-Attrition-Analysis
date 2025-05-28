@@ -23,7 +23,7 @@ This project analyzes employee attrition in a company using the IBM HR Analytics
 
 ---
 
-## Day 2 – Visual Analysis by Department
+## 2 – Visual Analysis by Department
 
 We visualized attrition rates by department to identify where turnover is most critical.
 
@@ -34,7 +34,7 @@ We visualized attrition rates by department to identify where turnover is most c
 
 ---
 
-## Day 3 – Correlation Insights
+## 3 – Correlation Insights
 
 - Strong positive correlation between `JobLevel` and `MonthlyIncome` (~0.95): higher-level employees earn more.
 - `TotalWorkingYears` strongly correlates with `Age` (~0.78): older employees have more experience.
@@ -42,7 +42,7 @@ We visualized attrition rates by department to identify where turnover is most c
 
 ---
 
-## Day 4 – Machine Learning Model
+## 4 – Machine Learning Model
 
 - **Model used:** Logistic Regression
 - **Accuracy achieved:** ~88%
@@ -52,7 +52,7 @@ We visualized attrition rates by department to identify where turnover is most c
 
 
 
-## Day 4 – Feature Importance Insights
+## 4 – Feature Importance Insights
 
 Using a Random Forest model, we identified the most influential variables in employee attrition.
 
