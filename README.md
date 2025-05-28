@@ -52,7 +52,7 @@ We visualized attrition rates by department to identify where turnover is most c
 
 
 
-## 4 – Feature Importance Insights
+## 4b – Feature Importance Insights
 
 Using a Random Forest model, we identified the most influential variables in employee attrition.
 
