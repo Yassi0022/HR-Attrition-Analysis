@@ -37,7 +37,7 @@ plt.xticks(rotation=30)
 plt.tight_layout()
 
 
-plt.savefig("img/attriction_percentage_by_department.png")
+plt.savefig("img/attrition_percentage_by_department.png")
 plt.show()
 plt.close()
 
