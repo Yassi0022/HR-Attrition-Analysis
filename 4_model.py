@@ -18,7 +18,7 @@ scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
 X_train, X_test, Y_train, Y_test = train_test_split(
-    X, Y, test_size=0.2, random_state=42
+    X_scaled, Y, test_size=0.2, random_state=42
 )
 #print("Training set size:", X_train.shape[0])
 #print("Test set size:", X_test.shape[0])
