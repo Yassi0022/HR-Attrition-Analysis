@@ -39,4 +39,4 @@ plt.tight_layout()
 plt.savefig("img/income_by_attrition.png")
 plt.close()
 
-print("All visuals for  have been saved in 'img/' folder.")
+print("All visuals have been saved in 'img/' folder.")
