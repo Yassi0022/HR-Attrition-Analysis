@@ -97,7 +97,9 @@ def evaluate_model(
     typer.echo(f"  Recall:    {metrics['recall']:.4f}")
     typer.echo(f"  F1-Score:  {metrics['f1_score']:.4f}")
     typer.echo(f"  ROC-AUC:   {metrics['roc_auc']:.4f}")
-    typer.echo(f"\nClassification Report:\n{classification_report(y_test, y_pred, target_names=['No', 'Yes'])}")
+    typer.echo(
+        f"\nClassification Report:\n{classification_report(y_test, y_pred, target_names=['No', 'Yes'])}"
+    )
 
     return metrics
 
@@ -148,10 +150,16 @@ def get_feature_importance(
 ) -> pd.DataFrame:
     """Extract feature importance from Random Forest model."""
     importances = model.feature_importances_
-    importance_df = pd.DataFrame({
-        "Feature": feature_names,
-        "Importance": importances,
-    }).sort_values("Importance", ascending=False).head(top_n)
+    importance_df = (
+        pd.DataFrame(
+            {
+                "Feature": feature_names,
+                "Importance": importances,
+            }
+        )
+        .sort_values("Importance", ascending=False)
+        .head(top_n)
+    )
 
     return importance_df
 
@@ -177,16 +185,24 @@ def plot_logistic_coefficients(
     top_n: int = 20,
 ) -> None:
     """Plot logistic regression coefficients."""
-    coef_df = pd.DataFrame({
-        "Feature": feature_names,
-        "Coefficient": model.coef_[0],
-    }).sort_values("Coefficient", key=abs, ascending=False).head(top_n)
+    coef_df = (
+        pd.DataFrame(
+            {
+                "Feature": feature_names,
+                "Coefficient": model.coef_[0],
+            }
+        )
+        .sort_values("Coefficient", key=abs, ascending=False)
+        .head(top_n)
+    )
 
     fig, ax = plt.subplots(figsize=(10, 8))
     coef_df = coef_df.iloc[::-1]  # Reverse for horizontal bar chart
     colors = ["red" if c < 0 else "blue" for c in coef_df["Coefficient"]]
     sns.barplot(data=coef_df, x="Coefficient", y="Feature", ax=ax, palette=colors)
-    ax.set_title("Logistic Regression Coefficients (Top 20 by Magnitude)", fontsize=14, fontweight="bold")
+    ax.set_title(
+        "Logistic Regression Coefficients (Top 20 by Magnitude)", fontsize=14, fontweight="bold"
+    )
     ax.set_xlabel("Coefficient Value", fontsize=12)
     ax.set_ylabel("Feature", fontsize=12)
     ax.axvline(x=0, color="black", linewidth=0.5)

@@ -23,10 +23,12 @@ def run_exploration(df: pd.DataFrame = None) -> pd.DataFrame:
     attrition_ct = pd.crosstab(df["Department"], df["Attrition"])
     attrition_pct = attrition_ct.apply(lambda row: row["Yes"] / row.sum() * 100, axis=1)
 
-    result = pd.DataFrame({
-        "Department": attrition_pct.index,
-        "Attrition_Percentage": attrition_pct.values,
-    }).sort_values("Attrition_Percentage", ascending=False)
+    result = pd.DataFrame(
+        {
+            "Department": attrition_pct.index,
+            "Attrition_Percentage": attrition_pct.values,
+        }
+    ).sort_values("Attrition_Percentage", ascending=False)
 
     # Create visualization
     import matplotlib.pyplot as plt
@@ -52,13 +54,16 @@ def run_exploration(df: pd.DataFrame = None) -> pd.DataFrame:
 def print_basic_stats(df: pd.DataFrame) -> None:
     """Print basic dataset statistics."""
     import typer
+
     typer.echo("\n=== Dataset Overview ===")
     typer.echo(f"Shape: {df.shape}")
     typer.echo(f"\nColumns ({len(df.columns)}): {list(df.columns)}")
     typer.echo(f"\nData Types:\n{df.dtypes.value_counts()}")
     typer.echo(f"\nMissing Values:\n{df.isnull().sum().sum()} total")
     typer.echo(f"\nTarget Distribution:\n{df['Attrition'].value_counts()}")
-    typer.echo(f"\nTarget Distribution (%):\n{df['Attrition'].value_counts(normalize=True).mul(100).round(2)}")
+    typer.echo(
+        f"\nTarget Distribution (%):\n{df['Attrition'].value_counts(normalize=True).mul(100).round(2)}"
+    )
 
 
 if __name__ == "__main__":

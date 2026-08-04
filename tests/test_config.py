@@ -1,6 +1,5 @@
 """Tests for configuration module."""
 
-
 from attrition.config import (
     CATEGORICAL_COLUMNS,
     COLUMNS_TO_DROP,

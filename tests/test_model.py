@@ -31,14 +31,12 @@ def sample_training_data():
     n_features = 10
 
     X_train = pd.DataFrame(
-        np.random.randn(n_train, n_features),
-        columns=[f"feature_{i}" for i in range(n_features)]
+        np.random.randn(n_train, n_features), columns=[f"feature_{i}" for i in range(n_features)]
     )
     y_train = pd.Series(np.random.choice([0, 1], n_train, p=[0.8, 0.2]))
 
     X_test = pd.DataFrame(
-        np.random.randn(n_test, n_features),
-        columns=[f"feature_{i}" for i in range(n_features)]
+        np.random.randn(n_test, n_features), columns=[f"feature_{i}" for i in range(n_features)]
     )
     y_test = pd.Series(np.random.choice([0, 1], n_test, p=[0.8, 0.2]))
 

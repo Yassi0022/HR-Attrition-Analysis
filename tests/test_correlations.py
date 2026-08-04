@@ -18,12 +18,14 @@ from attrition.correlations import (
 @pytest.fixture
 def sample_numeric_data():
     """Create sample numeric data with known correlations."""
-    return pd.DataFrame({
-        "A": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] * 5,
-        "B": [2, 4, 6, 8, 10, 12, 14, 16, 18, 20] * 5,  # Perfect correlation with A
-        "C": [10, 9, 8, 7, 6, 5, 4, 3, 2, 1] * 5,  # Negative correlation with A
-        "E": [1, 3, 2, 5, 4, 7, 6, 9, 8, 10] * 5,  # Weak correlation
-    })
+    return pd.DataFrame(
+        {
+            "A": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] * 5,
+            "B": [2, 4, 6, 8, 10, 12, 14, 16, 18, 20] * 5,  # Perfect correlation with A
+            "C": [10, 9, 8, 7, 6, 5, 4, 3, 2, 1] * 5,  # Negative correlation with A
+            "E": [1, 3, 2, 5, 4, 7, 6, 9, 8, 10] * 5,  # Weak correlation
+        }
+    )
 
 
 def test_compute_correlation_matrix(sample_numeric_data):

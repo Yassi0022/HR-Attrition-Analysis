@@ -37,6 +37,7 @@ def load_data(path: Path | None = None) -> pd.DataFrame:
     """Load the raw attrition dataset."""
     if path is None:
         from attrition.config import RAW_DATA_PATH
+
         path = RAW_DATA_PATH
     return pd.read_csv(path)
 

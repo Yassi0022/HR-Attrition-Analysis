@@ -51,9 +51,11 @@ def plot_attrition_by_categorical(
     if figsize is None:
         figsize = DEFAULT_FIGSIZE
 
-    attrition_rate = df.groupby(column)["Attrition"].apply(
-        lambda x: (x == "Yes").mean() * 100
-    ).sort_values(ascending=False)
+    attrition_rate = (
+        df.groupby(column)["Attrition"]
+        .apply(lambda x: (x == "Yes").mean() * 100)
+        .sort_values(ascending=False)
+    )
 
     fig, ax = plt.subplots(figsize=figsize)
     sns.barplot(x=attrition_rate.index, y=attrition_rate.values, ax=ax)

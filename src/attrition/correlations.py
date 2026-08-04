@@ -50,11 +50,13 @@ def find_strong_correlations(
         for j in range(i + 1, len(cols)):
             corr_val = corr_matrix.iloc[i, j]
             if abs(corr_val) >= threshold:
-                pairs.append({
-                    "Feature_1": cols[i],
-                    "Feature_2": cols[j],
-                    "Correlation": corr_val,
-                })
+                pairs.append(
+                    {
+                        "Feature_1": cols[i],
+                        "Feature_2": cols[j],
+                        "Correlation": corr_val,
+                    }
+                )
     if not pairs:
         return pd.DataFrame(columns=["Feature_1", "Feature_2", "Correlation"])
     return pd.DataFrame(pairs).sort_values("Correlation", key=abs, ascending=False)

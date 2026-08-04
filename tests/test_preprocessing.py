@@ -26,45 +26,47 @@ def sample_raw_data():
     np.random.seed(42)
     n = 100
 
-    return pd.DataFrame({
-        "EmployeeNumber": range(1, n + 1),
-        "EmployeeCount": [1] * n,
-        "Over18": ["Y"] * n,
-        "StandardHours": [80] * n,
-        "Attrition": np.random.choice(["Yes", "No"], n, p=[0.2, 0.8]),
-        "Age": np.random.randint(18, 65, n),
-        "BusinessTravel": np.random.choice(
-            ["Travel_Rarely", "Travel_Frequently", "Non-Travel"], n
-        ),
-        "Department": np.random.choice(["Sales", "Research", "HR"], n),
-        "DistanceFromHome": np.random.randint(1, 30, n),
-        "Education": np.random.randint(1, 5, n),
-        "EducationField": np.random.choice(
-            ["Life Sciences", "Medical", "Marketing", "Technical", "Other"], n
-        ),
-        "Gender": np.random.choice(["Male", "Female"], n),
-        "JobRole": np.random.choice(
-            ["Sales Rep", "Research Scientist", "Manager", "Developer"], n
-        ),
-        "MaritalStatus": np.random.choice(["Single", "Married", "Divorced"], n),
-        "MonthlyIncome": np.random.randint(2000, 20000, n),
-        "OverTime": np.random.choice(["Yes", "No"], n),
-        "YearsAtCompany": np.random.randint(0, 20, n),
-        # Add more numerical columns
-        "DailyRate": np.random.randint(100, 1500, n),
-        "HourlyRate": np.random.randint(30, 100, n),
-        "MonthlyRate": np.random.randint(5000, 30000, n),
-        "NumCompaniesWorked": np.random.randint(0, 10, n),
-        "PercentSalaryHike": np.random.randint(5, 25, n),
-        "PerformanceRating": np.random.randint(1, 5, n),
-        "StockOptionLevel": np.random.randint(0, 3, n),
-        "TotalWorkingYears": np.random.randint(0, 30, n),
-        "TrainingTimesLastYear": np.random.randint(0, 6, n),
-        "WorkLifeBalance": np.random.randint(1, 5, n),
-        "YearsInCurrentRole": np.random.randint(0, 15, n),
-        "YearsSinceLastPromotion": np.random.randint(0, 10, n),
-        "YearsWithCurrManager": np.random.randint(0, 15, n),
-    })
+    return pd.DataFrame(
+        {
+            "EmployeeNumber": range(1, n + 1),
+            "EmployeeCount": [1] * n,
+            "Over18": ["Y"] * n,
+            "StandardHours": [80] * n,
+            "Attrition": np.random.choice(["Yes", "No"], n, p=[0.2, 0.8]),
+            "Age": np.random.randint(18, 65, n),
+            "BusinessTravel": np.random.choice(
+                ["Travel_Rarely", "Travel_Frequently", "Non-Travel"], n
+            ),
+            "Department": np.random.choice(["Sales", "Research", "HR"], n),
+            "DistanceFromHome": np.random.randint(1, 30, n),
+            "Education": np.random.randint(1, 5, n),
+            "EducationField": np.random.choice(
+                ["Life Sciences", "Medical", "Marketing", "Technical", "Other"], n
+            ),
+            "Gender": np.random.choice(["Male", "Female"], n),
+            "JobRole": np.random.choice(
+                ["Sales Rep", "Research Scientist", "Manager", "Developer"], n
+            ),
+            "MaritalStatus": np.random.choice(["Single", "Married", "Divorced"], n),
+            "MonthlyIncome": np.random.randint(2000, 20000, n),
+            "OverTime": np.random.choice(["Yes", "No"], n),
+            "YearsAtCompany": np.random.randint(0, 20, n),
+            # Add more numerical columns
+            "DailyRate": np.random.randint(100, 1500, n),
+            "HourlyRate": np.random.randint(30, 100, n),
+            "MonthlyRate": np.random.randint(5000, 30000, n),
+            "NumCompaniesWorked": np.random.randint(0, 10, n),
+            "PercentSalaryHike": np.random.randint(5, 25, n),
+            "PerformanceRating": np.random.randint(1, 5, n),
+            "StockOptionLevel": np.random.randint(0, 3, n),
+            "TotalWorkingYears": np.random.randint(0, 30, n),
+            "TrainingTimesLastYear": np.random.randint(0, 6, n),
+            "WorkLifeBalance": np.random.randint(1, 5, n),
+            "YearsInCurrentRole": np.random.randint(0, 15, n),
+            "YearsSinceLastPromotion": np.random.randint(0, 10, n),
+            "YearsWithCurrManager": np.random.randint(0, 15, n),
+        }
+    )
 
 
 def test_get_feature_columns(sample_raw_data):
@@ -123,7 +125,10 @@ def test_prepare_data_no_leakage(sample_raw_data):
     # Check shapes
     assert len(X_train) > 0
     assert len(X_test) > 0
-    assert len(X_train) + len(X_test) == len(sample_raw_data) - sample_raw_data[TARGET_COLUMN].isna().sum()
+    assert (
+        len(X_train) + len(X_test)
+        == len(sample_raw_data) - sample_raw_data[TARGET_COLUMN].isna().sum()
+    )
 
     # Check target is binary
     assert set(y_train.unique()).issubset({0, 1})

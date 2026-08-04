@@ -20,14 +20,17 @@ from attrition.visuals import (
 def sample_data():
     """Create sample data for testing visualizations."""
     n = 80
-    return pd.DataFrame({
-        "Age": [25, 30, 35, 40, 45, 50, 55, 60] * (n // 8),
-        "MonthlyIncome": [3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000] * (n // 8),
-        "Attrition": ["Yes", "No"] * (n // 2),
-        "Department": ["Sales", "Research", "HR"] * (n // 3) + ["Sales"] * (n % 3),
-        "JobRole": ["Manager", "Developer", "Analyst"] * (n // 3) + ["Manager"] * (n % 3),
-        "BusinessTravel": ["Travel_Rarely", "Travel_Frequently", "Non-Travel"] * (n // 3) + ["Travel_Rarely"] * (n % 3),
-    })
+    return pd.DataFrame(
+        {
+            "Age": [25, 30, 35, 40, 45, 50, 55, 60] * (n // 8),
+            "MonthlyIncome": [3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000] * (n // 8),
+            "Attrition": ["Yes", "No"] * (n // 2),
+            "Department": ["Sales", "Research", "HR"] * (n // 3) + ["Sales"] * (n % 3),
+            "JobRole": ["Manager", "Developer", "Analyst"] * (n // 3) + ["Manager"] * (n % 3),
+            "BusinessTravel": ["Travel_Rarely", "Travel_Frequently", "Non-Travel"] * (n // 3)
+            + ["Travel_Rarely"] * (n % 3),
+        }
+    )
 
 
 def test_plot_age_distribution(sample_data):
