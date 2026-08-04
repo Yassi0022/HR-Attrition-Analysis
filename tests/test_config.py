@@ -23,7 +23,9 @@ from attrition.config import (
 def test_project_root_exists():
     """Test that PROJECT_ROOT points to the correct directory."""
     assert PROJECT_ROOT.exists()
-    assert PROJECT_ROOT.name == "attrition"
+    # Project root should contain src/attrition package and key directories
+    assert (PROJECT_ROOT / "src" / "attrition").exists()
+    assert (PROJECT_ROOT / "tests").exists()
 
 
 def test_data_paths():
