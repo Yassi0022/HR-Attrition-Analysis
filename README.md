@@ -72,6 +72,6 @@ Using a Random Forest model, we identified the most influential variables in emp
 
 ## Next Steps
 
-- Apply more advanced models like Random Forest and XGBoost
+- Apply more advanced models like XGBoost
 - Use cross-validation and SMOTE to handle imbalance
 - Build an interactive dashboard to present insights
