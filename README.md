@@ -149,7 +149,10 @@ We visualized attrition rates by department to identify where turnover is most c
 
 Using a Random Forest model, we identified the most influential variables in employee attrition.
 
-### Top Influential Features:
+### Top Influential Features (Random Forest):
+
+![Feature Importance](img/feature_importance_random_forest.png)
+
 1. **MonthlyIncome** – Lower salaries correlate with higher attrition
 2. **OverTime** – Frequent overtime increases attrition risk
 3. **Age** – Younger employees are more likely to leave
