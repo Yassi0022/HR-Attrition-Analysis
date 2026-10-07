@@ -64,7 +64,7 @@ Maps pairwise feature relationships, helping distinguish correlated signals and 
 ### Feature importance
 Ranks influential model features to focus follow-up analysis on the strongest attrition signals.
 
-![Feature importance](https://raw.githubusercontent.com/Yassi0022/HR-Attrition-Analysis/main/img/feature_importance.png)
+![Feature importance](https://raw.githubusercontent.com/Yassi0022/HR-Attrition-Analysis/main/img/feature_importance_random_forest.png)
 
 ### Random Forest feature importance
 Shows Random Forest feature rankings, supporting the project's driver analysis and HR recommendations.
